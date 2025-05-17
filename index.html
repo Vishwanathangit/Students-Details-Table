@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Students Details</title>
+</head>
+
+<body style="text-align: center;">
+    <h1>STUDENT FORM</h1>
+    <div id="container">
+        <center>
+            <form>
+                <table border="2" id="details" style="text-align: center;">
+                    <tr>
+                        <td><strong>Name</strong></td>
+                        <td><input type="text" id="namee"></td>
+                    </tr>
+                    <tr>
+                        <td><strong>Age</strong></td>
+                        <td><input type="number" id="age"></td>
+                    </tr>
+                    <tr>
+                        <td><strong>Gender</strong></td>
+                        <td>
+                            <input type="radio" name="Gender" id="male"> Male
+                            <input type="radio" name="Gender" id="female"> Female
+                        </td>
+                    </tr>
+                    <tr>
+                        <td><strong>Course</strong></td>
+                        <td>
+                            <select id="course">
+                                <option>Python Programming</option>
+                                <option>JavaScript</option>
+                                <option>Core Java</option>
+                            </select>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td><strong>Email</strong></td>
+                        <td><input type="email" id="email"></td>
+                    </tr>
+                    <tr>
+                        <td colspan="2" style="text-align:center;">
+                            <button style="background-color: #7fffd4; width: 100%;" id="btn">Save</button>
+                        </td>
+                    </tr>
+                </table>
+            </form>
+        </center>
+    </div><br><br>
+    <center>
+        <table border="2" id="result">
+            <tr>
+                <td><strong>NAME</strong></td>
+                <td><strong>AGE</strong></td>
+                <td><strong>COURSE</strong></td>
+                <td><strong>GENDER</strong></td>
+                <td><strong>EMAIL</strong></td>
+                <td><strong>ACTION</strong></td>
+            </tr>
+        </table>
+    </center>
+    <script>
+        var container = document.getElementById("container")
+        var name = document.getElementById("namee")
+        var age = document.getElementById("age")
+        var male = document.getElementById("male")
+        var female = document.getElementById("female")
+        var course = document.getElementById("course")
+        var email = document.getElementById("email")
+        var btn = document.getElementById("btn")
+        var result = document.getElementById("result")
+
+        btn.addEventListener("click", function (event) {
+            event.preventDefault();
+
+            var tr = document.createElement("tr")
+
+            var td1 = document.createElement("td")
+            td1.textContent = namee.value
+            tr.append(td1)
+
+            var td2 = document.createElement("td")
+            td2.textContent = age.value
+            tr.append(td2)
+
+            var td3 = document.createElement("td")
+            td3.textContent = course.value
+            tr.append(td3)
+
+            var td4 = document.createElement("td");
+            td4.textContent = male.checked ? "Male" : (female.checked ? "Female" : "");
+            tr.append(td4);
+
+            var td5 = document.createElement("td");
+            td5.textContent = email.value;
+            tr.append(td5);
+
+            var td6 = document.createElement("td");
+            var delbtn = document.createElement("button")
+            delbtn.textContent = "Delete"
+            delbtn.style.background = "red"
+            delbtn.style.color = "white"
+            td6.append(delbtn)
+            tr.append(td6)
+            delbtn.addEventListener("click", function () {
+                tr.remove();
+            });
+            result.append(tr)
+        })
+    </script>
+</body>
+
+</html>
